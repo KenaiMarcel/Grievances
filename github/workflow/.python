@@ -1,0 +1,56 @@
+import csv
+import json
+from docx import Document
+
+
+json_data = {
+    "metadata": {
+        "file_type": "xlsx",
+        "max_size_mb": 500,
+        "created_at": "2025-04-18T02:44:01Z",
+        "description": "User-script debug data for export to Microsoft platforms"
+    },
+    "debug_data": []
+}
+
+# Step 2: Load CSV data ,
+    "debug_data": []
+}
+
+
+csv_file_path = "debug_data.csv"  # Replace with your CSV file path
+try:
+    with open(xslx_file_path, "r") as xslx_file:
+      reader = "/storage/emulated/0/Download/JPM-S-3/A.xlsx"
+        for row in reader:
+            json_data["debug_data"].append(row)
+
+    
+    with open("      json.dump(json_data, json_file, indent=4)
+    print("JSON file created successfully!")
+except Exception as e:
+    print(f"Error processing CSV file: {e}")
+
+
+doc = Document()
+doc.add_heading("User-Script Debug Data", level=1)
+
+
+doc.add_heading("Metadata", level=2)
+for key, value in json_data["metadata"].items():
+    doc.add_paragraph(f"{key}: {value}")
+
+
+doc.add_heading("Debug Data", level=2)
+for row in json_data["debug_data"]:
+    for key, value in row.items():
+        doc.add_paragraph(f"{key}: {value}")
+    doc.add_paragraph("")  
+
+
+docx_file_path = "debug_data.docx"
+try:
+    doc.save(docx_file_path)
+    print(f"DOCX file created successfully at {docx_file_path}!")
+except Exception as e:
+    print(f"Error saving DOCX file: {e}")
