@@ -1,4 +1,4 @@
-1.{
+{
   "metadata": {
     "file_type": "CSV",
     "max_size_mb": 500,
@@ -6,5 +6,3 @@
     "description": "User-script debug data for export to Microsoft platforms"
   },
   "debug_data": []
-}
-2. push code 
